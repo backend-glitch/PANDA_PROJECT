@@ -158,3 +158,53 @@ agg_advanced = df_2.groupby('Category')['Stock Quantity'].agg(['sum', 'mean', 'm
 print("\nAdvanced Aggregation (sum, mean, max of Stock Quantity):")
 print(agg_advanced)
 
+
+# PART 4
+# merging 
+
+# Main inventory DataFrame
+df_inventory = pd.DataFrame({
+    'Product ID': [1, 2, 3],
+    'Product Name': ['Pen', 'Book', 'Bag'],
+    'Unit Price': [9.0, 225.0, 450.0]
+})
+
+# Supplier DataFrame (from another source)
+df_supplier = pd.DataFrame({
+    'Product ID': [1, 2, 4],
+    'Supplier': ['Supplier A', 'Supplier B', 'Supplier D']
+})
+
+print("Inventory DataFrame:")
+print(df_inventory)
+
+print("\nSupplier DataFrame:")
+print(df_supplier)
+
+#  inner merge : merge only common keys/ids
+df_inner = pd.merge(df_inventory, df_supplier, on='Product ID', how='inner')
+print("\nInner Merge (only matching Product IDs):")
+print(df_inner)
+
+# left merge :
+df_left = pd.merge(df_inventory, df_supplier, on='Product ID', how='left')
+print("\nLeft Merge (All inventory, Supplier if exists):")
+print(df_left)
+
+# merges all data  : common ,uncommon
+df_outer = pd.merge(df_inventory, df_supplier, on='Product ID', how='outer')
+print("\nOuter Merge (All products from both):")
+print(df_outer)
+
+'''
+
+on='Product ID' → Match based on the Product ID column in both DataFrames.
+
+how='inner' → Only matching keys.
+
+how='left' → All from left + matched right.
+
+how='right' → All from right + matched left.
+
+how='outer' → Everything combined.
+'''

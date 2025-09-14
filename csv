@@ -1,0 +1,4 @@
+unit_price,stock_quantity,supplier,rating,category
+9.0,100,supplier a,4.5,statinary
+225.0,30,supplier b,4.8,education
+450.0,15,supplier c,4.7,accessories
