@@ -19,4 +19,6 @@
 
 #contacts.csv : It is the csv file of "team_1.py".
 
+# CONTACTS,CSV RAW LINK : # https://raw.githubusercontent.com/backend-glitch/PANDA_PROJECT/main/contacts.csv
+
 
